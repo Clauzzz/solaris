@@ -1,0 +1,133 @@
+<svg
+   xmlns="http://www.w3.org/2000/svg" 
+   version="1.1" 
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   width="72mm"
+   height="72mm"
+   viewBox="0 0 71.999998 71.999997"
+   version="1.1"
+   id="svg5">
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient11571">
+      <stop
+         style="stop-color:#ac4c00;stop-opacity:1"
+         offset="0"
+         id="stop11567" />
+      <stop
+         style="stop-color:#000000;stop-opacity:1"
+         offset="1"
+         id="stop11569" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient10725">
+      <stop
+         style="stop-color:#6eb6ff;stop-opacity:1;"
+         offset="0"
+         id="stop10719" />
+      <stop
+         style="stop-color:#00c9ff;stop-opacity:1"
+         offset="0"
+         id="stop10721" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="1"
+         id="stop10723" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient9583">
+      <stop
+         style="stop-color:#6eb6ff;stop-opacity:1;"
+         offset="0"
+         id="stop9579" />
+      <stop
+         style="stop-color:#000354;stop-opacity:1"
+         offset="0"
+         id="stop9651" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="1"
+         id="stop9581" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient8445">
+      <stop
+         style="stop-color:#0040a4;stop-opacity:1;"
+         offset="0"
+         id="stop8441" />
+      <stop
+         style="stop-color:#6eb6ff;stop-opacity:1"
+         offset="1"
+         id="stop8443" />
+    </linearGradient>
+    <radialGradient
+       xlink:href="#linearGradient8445"
+       id="radialGradient9153"
+       cx="56.79681"
+       cy="53.641434"
+       fx="56.79681"
+       fy="53.641434"
+       r="34.275898"
+       gradientTransform="matrix(1.2660063,0.01232515,-0.01314135,1.2040277,-35.20019,-29.285803)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       xlink:href="#linearGradient9583"
+       id="radialGradient9585"
+       cx="56.929199"
+       cy="53.042011"
+       fx="56.929199"
+       fy="53.042011"
+       r="23.561668"
+       gradientTransform="matrix(1.4352338,-0.01815277,0.01881444,1.4743756,-46.704669,-41.17042)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       xlink:href="#linearGradient10725"
+       id="radialGradient9585-6"
+       cx="56.929199"
+       cy="53.042011"
+       fx="56.929199"
+       fy="53.042011"
+       r="23.561668"
+       gradientTransform="matrix(0.70055386,-0.01393177,0.01389926,0.69273071,-4.6192165,0.04929245)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       xlink:href="#linearGradient11571"
+       id="radialGradient11573"
+       cx="57.590309"
+       cy="52.243362"
+       fx="57.590309"
+       fy="52.243362"
+       r="3.8501933"
+       gradientTransform="matrix(1.0778011,-0.00645676,0.00612221,1.0129079,-26.041287,-17.416524)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     id="layer1">
+    <ellipse
+       style="fill:url(#radialGradient9153);fill-opacity:1;stroke:#0083ff;stroke-width:0.992888;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path846"
+       cx="36"
+       cy="36.000004"
+       rx="34.503555"
+       ry="34.503559" />
+    <circle
+       style="fill:url(#radialGradient9585);fill-opacity:1;stroke:#ffffff;stroke-width:0.0991965;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path9497"
+       cx="36"
+       cy="36"
+       r="22.450401" />
+    <circle
+       style="fill:url(#radialGradient9585-6);fill-opacity:1;stroke:#ffffff;stroke-width:0.0990939;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path9497-8"
+       cy="36"
+       cx="36"
+       r="13.950453" />
+    <circle
+       style="fill:url(#radialGradient11573);fill-opacity:1;stroke:#ffffff;stroke-width:0.0343125;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path9497-8-3"
+       cy="35.900002"
+       cx="35.900002"
+       r="3.8828437" />
+  </g>
+</svg>

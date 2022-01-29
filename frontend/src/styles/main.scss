@@ -1,0 +1,167 @@
+html
+{
+    height: 100%;
+}
+body {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+    overflow: hidden;
+}
+#select_planet {
+    display: flex;
+    position:absolute;
+    top: 35%;
+    left: 35%;
+    right: 35%;
+    bottom: 35%;
+    z-index: 10;
+    cursor: pointer;
+}
+#loading_screen {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: Roboto;
+    color: white;
+    background-color: black;
+}
+#loading_message {
+    font-size: 25px;
+    font-weight: 400;
+    padding-top: 8%;
+}
+#container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+#planet_name {
+    display: flex;
+    color: white;
+    justify-content: center;
+    font-family: Roboto;
+    font-size: 35px;
+    min-width: 160px;
+}
+.loading_planet_body_inner,
+.loading_planet_body_outer {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    animation-fill-mode: forwards;
+    animation-name: rotateClockWise;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.loading_planet_body_inner {
+    animation-duration: 2s;
+}
+.loading_planet_body_outer {
+    animation-duration: 4s;
+
+}
+.planet_controls {
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    bottom: 15%;
+    height: 10%;
+    z-index: 9;
+    img {
+        display: flex;
+        height: 50px;
+        transition: all 0.5s;
+    }
+    img:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+}
+.loading_body {
+    display: flex;
+    position: relative;
+    height: 300px;
+    width: 300px;
+    .loading_planet_inner {
+        display: flex;
+        position:absolute;
+        top:25%;
+        right: 25%;
+        height: 10%;
+        width: 10%;
+        animation-duration: 2s;
+    }
+    .loading_planet_outer {
+        display: flex;
+        position:absolute;
+        top:0;
+        right: 0;
+        height: calc(70%/3);
+        width: calc(70%/3);
+        animation-duration: 4s;
+    }
+    .loading_planet_inner,
+    .loading_planet_outer {
+        animation-fill-mode: forwards;
+        animation-name: rotateAntiClockWise;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    .loading_sun {
+        display: flex;
+        position:absolute;
+        top:calc(100%/3);
+        right: calc(100%/3);
+        height: calc(100%/3);
+        width: calc(100%/3);
+        animation-fill-mode: forwards;
+        animation-name: rotateAndGrow;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-duration: 8s;
+    }
+}
+
+@keyframes rotateClockWise {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotateAndGrow {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+@keyframes rotateAntiClockWise {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
