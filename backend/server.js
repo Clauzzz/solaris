@@ -9,13 +9,14 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({
     extended: true
 }));
+const languages = ['en','ro'];
 const planets = ['sun', 'mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune', 'pluto'];
 server.use(express.static(path.join(__dirname,'./../')));
 
-server.get('/:planet', (req, res) => {
+server.get('/:planet/:lang', (req, res) => {
     try {
-        if(planets.indexOf(req.params.planet)!=-1) {
-            return res.sendFile(path.join(__dirname, '../frontend/pages/'+ req.params.planet+'.html'));
+        if(planets.indexOf(req.params.planet)!=-1 && languages.indexOf(req.params.lang)!=-1) {
+            return res.sendFile(path.join(__dirname, '../frontend/pages/'+ req.params.lang +'/'+req.params.planet+'.html'));
         }
         return res.status(200).send('Oopsie');
     } catch (err) {

@@ -2,21 +2,10 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./frontend/dist/styles/main.css" type="text/css">
     </head>
     <body>
-        <div data-planet="main" id="container"></div>
-        <div id="select_planet"></div>
-        <div class="planet_controls">
-            <span data-action="back">
-                <img class="loading_planet_inner" src="./frontend/assets/images/svg/left.svg">
-            </span>
-            <span id="planet_name"></span>
-            <span data-action="next">
-                <img class="loading_planet_inner" src="./frontend/assets/images/svg/right.svg">
-            </span>
-        </div>
         <div id="loading_screen">
             <div class="loading_body">
                 <div class="loading_planet_body_inner">
@@ -28,6 +17,24 @@
                 <img class="loading_sun" src="./frontend/assets/images/svg/sun.png">
             </div>
             <div id="loading_message"><span id="loading_message_text"></span><span id="loading_dots"></span></div>
+        </div>
+        <div class="planet_item_container">
+            <div data-planet="1" id="container" class="planet_background_container"></div>
+            <div class="planet_text_container">
+                <div class="planet_item_title">
+                    <div>
+                        Mercury
+                        <img src="./frontend/assets/images/svg/mercury.svg"/>
+                    </div>
+                    <div class="planet_item_subtitle">
+                        From Wikipedia, the free encyclopedia:<a href="https://en.wikipedia.org/wiki/Mercury">Mercury</a>
+                    </div>
+                </div>
+        
+                <div class="planet_text_subcontainer">
+                    
+                </div>
+            </div>
         </div>
         <script src="./frontend/assets/lib/three.min.js"></script>
         <script src="./frontend/assets/lib/js/controls/OrbitControls.js"></script>

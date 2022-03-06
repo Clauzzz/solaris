@@ -2,7 +2,7 @@ class Space {
     static radius = 10;
 
     static loadSkybox = () => {
-        const assetPath = "./frontend/assets/images/skybox/";
+        const assetPath = "../frontend/assets/images/skybox/";
         const scene = new THREE.Scene();
         const envMap = new THREE.CubeTextureLoader()
           .setPath(`${assetPath}skybox_`)

@@ -1,3 +1,5 @@
+@import './planet';
+
 html
 {
     height: 100%;
@@ -27,6 +29,7 @@ body {
     display: flex;
     position: relative;
     flex-direction: column;
+    z-index: 99;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -36,6 +39,7 @@ body {
     font-family: Roboto;
     color: white;
     background-color: black;
+    overflow: hidden;
 }
 #loading_message {
     font-size: 25px;
@@ -93,6 +97,9 @@ body {
         transform: scale(1.2);
     }
 }
+.anchor_point {
+    position: absolute;
+}
 .loading_body {
     display: flex;
     position: relative;
@@ -137,7 +144,65 @@ body {
         animation-duration: 8s;
     }
 }
+.language_switcher_container:hover{
+    cursor: pointer;
+}
+.language_switcher_container {
+    position: relative;
+    display: flex;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 5px 15px 5px 5px;
+    font-size: 14px;
+    font-weight: 900;
+    svg {
+        height: 50%;
+        padding: 5px;
+    }
+    box-sizing: border-box;
+    align-items: center;
+    font-family: Roboto;
+    background-color: rgba(106,154,226,0.2);
+    fill: #6a9ae2;
+    color: #6a9ae2;
+    border-color: #111111;
+    stroke: #111111;
+    border-radius: 5px;
+}
 
+.language_switcher_body {
+    display: none;
+    position:absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    flex-direction: column;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden;
+    padding-bottom: 2px;
+}
+
+.language_switcher_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    box-sizing: border-box;
+    img {
+        width: 25px;
+    }
+}
+.contents_h2 {
+    
+}
+.contents_h3 {
+    margin-left: 16px;
+}
 @keyframes rotateClockWise {
     0% {
         transform: rotate(0deg);
@@ -165,3 +230,138 @@ body {
         transform: rotate(-360deg);
     }
 }
+
+
+@media screen and (max-width: 375px) {
+    .controls_stats {
+        padding: 10px;
+    }
+    .controls_stats .controls_stats_row {
+        font-size: 12px;
+    }
+    .controls_topbar {
+        height: 90px;
+        img {
+            margin: 5px;
+        }
+    }
+    .contents_h2 {
+        font-size: 18px;
+    }
+    .contents_h3 {
+        font-size: 16px;
+    }
+    .planet_text_container {
+        padding-left: 20%;
+    }
+    .planet_item_text {
+        font-size: 13px;
+    }
+    .planet_item_title {
+        left: 50px;
+        top: 80px;
+        height: 45px;
+        font-size: 20px;
+        .planet_item_subtitle {
+            font-size: 14px;
+            padding: 0;
+            padding-left: 10px;
+        }
+    }
+}
+@media screen and (min-width: 375px) and (max-width: 425px) {
+    .controls_stats {
+        padding: 10px;
+    }
+    .controls_stats .controls_stats_row {
+        font-size: 14px;
+    }
+    .controls_topbar {
+        height: 90px;
+        img {
+            margin: 5px;
+        }
+    }
+    .contents_h2 {
+        font-size: 18px;
+    }
+    .contents_h3 {
+        font-size: 16px;
+    }
+    .planet_text_container {
+        padding-left: 20%;
+    }
+    .planet_item_text {
+        font-size: 14px;
+    }
+    .planet_item_title {
+        left: 50px;
+        top: 80px;
+        height: 45px;
+        font-size: 24px;
+        .planet_item_subtitle {
+            font-size: 14px;
+            padding: 0;
+            padding-left: 10px;
+        }
+    }
+}
+@media screen and (min-width: 425px) and (max-width: 768px) {
+    .controls_stats .controls_stats_row {
+        font-size: 14px;
+    }
+    .controls_topbar {
+        height: 70px;
+        padding-bottom: 0;
+        img {
+            height: 30px;
+            margin: 5px;
+        }
+    }
+    .contents_h2 {
+        font-size: 20px;
+    }
+    .contents_h3 {
+        font-size: 18px;
+    }
+    .planet_text_container {
+        padding-left: 20%;
+    }
+    .planet_item_text {
+        font-size: 14px;
+    }
+    .planet_item_title {
+        left: 50px;
+        top: 80px;
+        height: 45px;
+        font-size: 25px;
+        .planet_item_subtitle {
+            font-size: 15px;
+            padding: 0;
+            padding-left: 10px;
+        }
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .planet_item_text {
+        font-size: 16px;
+    }
+    .planet_item_title {
+        left: 80px;
+        top: 80px;
+        font-size: 40px;
+        .planet_item_subtitle {
+            font-size: 16px;
+        }
+    }
+}
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+    .planet_item_title {
+        top: 80px;
+        font-size: 40px;
+        .planet_item_subtitle {
+            font-size: 16px;
+        }
+    }
+}
+ 
