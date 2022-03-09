@@ -3,43 +3,74 @@ class Planet {
     static planets = [
         {
             name: "sun",
-            label: "Sun"
+            label: {
+                "en":"Sun",
+                "ro":"Soare"
+            }
+
         },
         {
             name: "mercury",
-            label: "Mercury"
+            label: {
+                "en":"Mercury",
+                "ro":"Mercur"
+            }
         },
         {
             name: "venus",
-            label: "Venus"
+            label: {
+                "en":"Venus",
+                "ro":"Venus"
+            }
         },
         {
             name: "earth",
-            label: "Earth"
+            label: {
+                "en":"Earth",
+                "ro":"Pământ"
+            }
         },
         {
             name: "mars",
-            label: "Mars"
+            label: {
+                "en":"Mars",
+                "ro":"Marte"
+            }
         },
         {
             name: "jupiter",
-            label: "Jupiter"
+            label: {
+                "en":"Jupiter",
+                "ro":"Jupiter"
+            }
         },
         {
             name: "saturn",
-            label: "Saturn"
+            label: {
+                "en":"Saturn",
+                "ro":"Saturn"
+            }
         },
         {
             name: "uranus",
-            label: "Uranus"
+            label: {
+                "en":"Uranus",
+                "ro":"Uranus"
+            }
         },
         {
             name: "neptune",
-            label: "Neptune"
+            label: {
+                "en":"Neptune",
+                "ro":"Neptun"
+            }
         },
         {
             name: "pluto",
-            label: "Pluto"
+            label: {
+                "en":"Pluto",
+                "ro":"Pluto"
+            }
         }
     ];
     static selectedPlanet;
@@ -74,41 +105,50 @@ class Planet {
         rings.position.z = z;
         return rings;
     }
-    static initializePlanetPage (planetO, scene) {
+    static initializePlanetPage (planetO, scene, index) {
         let loader = new THREE.TextureLoader();
         let moon, moon_geom, moon_mat, planet, planet_geom, planet_mat;
-        
-        let texture2=loader.load('../frontend/assets/images/low-res/ceres.jpg');
-        moon_mat=new THREE.MeshPhongMaterial({map:texture2});
-        moon_geom=new THREE.SphereGeometry(1,100,100);
-        moon = new THREE.Mesh(moon_geom,moon_mat);
-        moon.position.set(-2,-2.3, 9.5);
-        this.selectedMoon = moon;
-
         let texture=loader.load('../frontend/assets/images/low-res/' + planetO.name + '.jpg');
-        planet_mat=new THREE.MeshPhongMaterial({map:texture});
+        
+        if(index === 0) {
+            planet_mat= new THREE.MeshBasicMaterial({ map : texture });
+        } else {
+            planet_mat=new THREE.MeshPhongMaterial({map:texture});
+            const light = new THREE.PointLight( 0xccccff, 1.25 );
+            light.position.set( -15, 1, 15 );
+            light.castShadow = true;
+            light.shadow.mapSize.width = 512;
+            light.shadow.mapSize.height = 512;
+            light.shadow.camera.near = 0.5;
+            light.shadow.camera.far = 500;
+            scene.add(light);
+        }
         planet_mat.shininess = 0;
         planet_geom=new THREE.SphereGeometry(2.5,100,100);
         planet = new THREE.Mesh(planet_geom,planet_mat);
         planet.position.set(0,1,0);
-        planet.receiveShadow = true;
-        planet.castShadow = true;
         this.selectedPlanet = planet;
+        if(index !== 0 && index !==1 && index !==2) {
+            
+            let texture2=loader.load('../frontend/assets/images/low-res/ceres.jpg');
+            moon_mat=new THREE.MeshPhongMaterial({map:texture2});
+            moon_geom=new THREE.SphereGeometry(1,100,100);
+            moon = new THREE.Mesh(moon_geom,moon_mat);
+            moon.position.set(-2,-2.3, 9.5);
+            this.selectedMoon = moon;
+            scene.add(moon);
 
-        const light = new THREE.PointLight( 0xccccff, 1.25 );
-        light.position.set( -15, 1, 15 );
-        light.castShadow = true;
-        light.shadow.mapSize.width = 512;
-        light.shadow.mapSize.height = 512;
-        light.shadow.camera.near = 0.5;
-        light.shadow.camera.far = 500;
-        scene.add(light);
+            planet.receiveShadow = true;
+            planet.castShadow = true;
+        }
+
         scene.add(planet);
-        scene.add(moon);
+        
         return scene;
     }
     static initializePlanet = (planet, index, radius)=>
     {
+        let language = readCookie('lang');
         const texture = this.getTextureForPlanet(planet);
         let planet_mat;
         if(index == 0) {
@@ -130,7 +170,7 @@ class Planet {
         // nPlanet.rotateY(Math.PI/2);
         this.planets[index] = nPlanet;
         this.planets[index].name = planet.name;
-        this.planets[index].label = planet.label;
+        this.planets[index].label = planet.label[language];
         if(index == 0) {
             nPlanet.receiveShadow = false;
             nPlanet.castShadow = false;

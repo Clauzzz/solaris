@@ -25,9 +25,23 @@ server.get('/:planet/:lang', (req, res) => {
     }
     
 })
-server.get('/*',(req,res)=>
+server.get('/:lang',(req,res)=>
 {
-    res.sendFile(path.join(__dirname, '../index.html'));	  				
+    try {
+        if(languages.indexOf(req.params.lang)!=-1) {
+            return res.sendFile(path.join(__dirname, '../frontend/pages/'+ req.params.lang +'/index.html'));
+        }
+    } catch (err) {
+        console.log(err);
+        return res.status(200).send('Oopsie');
+    }
+    	  				
+});
+server.get('/', (req,res)=> {
+    return res.redirect('/en');
+});
+server.get('/*', (req,res)=> {
+    return res.redirect('/en');
 });
 server.listen(port,(err)=>
 {

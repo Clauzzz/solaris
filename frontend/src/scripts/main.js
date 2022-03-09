@@ -15,7 +15,9 @@ class Main {
     }
     static animatePlanetView = () => {
         Planet.selectedPlanet.rotation.y+=0.003;
-        Planet.selectedMoon.rotation.y+=0.002;
+        if(Planet.selectedMoon) {
+            Planet.selectedMoon.rotation.y+=0.002;
+        }
         this.renderer.render(this.scene, Camera.camera);
         this.controls.update();
         requestAnimationFrame(this.animatePlanetView);
@@ -118,8 +120,8 @@ class Main {
         this.controls = new THREE.OrbitControls( Camera.camera, this.renderer.domElement);
         const planetIndex = Number(this.container.dataset.planet);
         Planet.selectedPlanet = Planet.planets[planetIndex];
-        Camera.camera.position.set(-2,-1,11);
-        this.scene = Planet.initializePlanetPage(Planet.planets[planetIndex], this.scene);
+        Camera.camera.position.set(0,8,25);
+        this.scene = Planet.initializePlanetPage(Planet.planets[planetIndex], this.scene, planetIndex);
         if(planetIndex === 6) {
             this.scene.add(Planet.createSaturnRings(0, 1, 0,  Math.PI/2, Math.PI/2, 0));
         }

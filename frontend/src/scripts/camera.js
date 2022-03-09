@@ -8,10 +8,14 @@ class Camera {
     static moveCamera = (planets) => {
         this.camera.quaternion.slerp(planets[this.nextPlanet].cameraQuaternion, 0.1);
     }
-    static createLight = () => {
+    static createLight = (x,y,z) => {
         const index = 0;
         const light = new THREE.PointLight( 0xccccff, 1.25 );
-        light.position.set( Math.cos(Math.PI*2*index/10) * Camera.radius, 0, Math.sin(Math.PI*2*index/10) * Camera.radius );
+        if(x && y && z) {
+            light.position.set(x,y,z);
+        } else {
+            light.position.set( Math.cos(Math.PI*2*index/10) * Camera.radius, 0, Math.sin(Math.PI*2*index/10) * Camera.radius );
+        }
         light.castShadow = true;
         light.shadow.mapSize.width = 512;
         light.shadow.mapSize.height = 512;

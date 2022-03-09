@@ -19,7 +19,8 @@ class Controls {
         }
         const selectPlanet = document.getElementById('select_planet');
         selectPlanet.addEventListener('click', ()=> {
-            location.href =  siteBase + '/' + planets[Camera.currentPlanet].name + '/en';
+            let language = readCookie('lang');
+            location.href =  siteBase + '/' + planets[Camera.currentPlanet].name + '/'+ language;
         })
     }
     static showPlanetControls = () => {
@@ -60,6 +61,11 @@ class Controls {
         Controls.changeLabelToPlanet(Planet.planets, Camera.nextPlanet);
     }
     static initializeAnchorPoints = () => {
+        let element = document.getElementById('back_to_planets');
+        if(element) {
+            let language = readCookie('lang');
+            element.href = Config.siteBase + '/' + language;
+        }
         setTimeout(()=> {
             let anchors = document.getElementsByClassName('anchor_point');
             for(let i = 0; i <anchors.length; i++) {
@@ -75,10 +81,19 @@ class Controls {
     static initializeLanguage = () => {
         let language;
         language = readCookie('lang');
-        if(!language) {
+        let location = window.location.href;
+        let paths = location.split('/');
+        
+        if(!language && paths[paths.length-1]=='en') {
             language = 'en';
             createCookie('lang', language);
         }
+        if(language && paths[paths.length-1] != language){
+            paths[paths.length-1] = language;
+            location = paths.join('/');
+            window.location.href = location;
+        }
+        
         document.getElementById('selected_language').innerHTML = language.toUpperCase();
         this.clickLanguageSwitcher();
     }

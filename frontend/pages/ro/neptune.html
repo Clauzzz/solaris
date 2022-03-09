@@ -2,6 +2,10 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Neptun, misteriosul gigant inghețat.">
+        <meta name="keywords" content="tech, proiecte informatică, threejs, neptun, planete, spațiu">
+        <title>Neptun</title>
+        <link rel="icon" href="../frontend/assets/images/svg/neptune.svg" type="image/x-icon"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../frontend/dist/styles/main.css" type="text/css">
     </head>
@@ -20,7 +24,7 @@
         </div>
         <div id="controls_topbar" class="controls_topbar">
             <div class="controls_back">
-                <a href="http://localhost:8901/">
+                <a id="back_to_planets">
                     <img src="../frontend/assets/images/svg/back.svg"/>
                 </a>
                 
@@ -55,7 +59,7 @@
             <div class="controls_stats">
                 <div class="controls_stats_row">
                     <label>Masă</label>
-                    <span>17.147 ori a Pământului</span>
+                    <span>17,147 ori a Pământului</span>
                 </div>
                 <div class="controls_stats_row">
                     <label>Raza</label>
@@ -63,7 +67,7 @@
                 </div>
                 <div class="controls_stats_row">
                     <label>Densitate</label>
-                    <span>1.638 g/cm<sup>3</sup></span>
+                    <span>1,638 g/cm<sup>3</sup></span>
                 </div>
                 <div class="controls_stats_row">
                     <label>Temperatură la suprafață</label>
@@ -71,7 +75,7 @@
                 </div>
                 <div class="controls_stats_row">
                     <label>Distanță medie față de Soare</label>
-                    <span>30.07 AU</span>
+                    <span>30,07 AU</span>
                 </div>
                 <div class="controls_stats_row">
                     <label>Rotația în jurul axei</label>
@@ -79,10 +83,10 @@
                 </div>
                 <div class="controls_stats_row">
                     <label>Rotația în jurul Soarelui</label>
-                    <span>164.8 ani</span>
+                    <span>164,8 ani</span>
                 </div>
                 <div class="controls_stats_row">
-                    <label>Sateliți</label>
+                    <label>Sateliți naturali</label>
                     <span>14</span>
                 </div>
             </div>
@@ -98,7 +102,7 @@
                         <img src="../frontend/assets/images/svg/neptune.svg"/>
                     </div>
                     <div class="planet_item_subtitle">
-                        De la Wikipedia, enciclopedia liberă:<a href="https://en.wikipedia.org/wiki/Neptune">Neptune</a>
+                        De la Wikipedia, enciclopedia liberă:<a href="https://en.wikipedia.org/wiki/Neptune">Neptun</a>
                     </div>
                 </div>
 
@@ -170,10 +174,6 @@
                         Mantaua planetei ajunge la temperaturi între 2.000 K și 5.000 K. Mantaua lui Neptun este echivalentă cu 10-15 mase ale Pământului și este bogată în apă, amoniac și metan. Deși este un fluid dens cu temperaturi ridicate, în planetologie acest amestec este caracterizat drept „ghețos”. Acest fluid, care are o conductivitate electrică ridicată, este uneori numit și ocean de apă-amoniac. La o adâncime de 7000 km în manta, există posibilitatea ca metanul să se descompună în cristale de diamant care se precipită înspre nucleu. Mantaua poate consta dintr-un strat de apă ionică, în care moleculele de apă se descompun într-o supă de ioni de hidrogen și oxigen, iar mai adânc de apa superionică, în care oxigenul cristalizează, dar ionii de hidrogen plutesc liber în cadrul rețelei de oxigen.
                         Nucleul planetei este compus din fier, nichel și silicați fiind de 1,2 ori mai mare decât masa Pământului. Presiunea din centru este de 7 Mbar (700 GPa), aproximativ de două ori mai mare decât în centrul Pământului și temperatura ar putea fi de 5.400 K.
                     </div>
-                    <div class="planet_item_text">
-                        The mantle is equivalent to 10 to 15 Earth masses and is rich in water, ammonia and methane. As is customary in planetary science, this mixture is referred to as icy even though it is a hot, dense fluid. This fluid, which has a high electrical conductivity, is sometimes called a water–ammonia ocean. The mantle may consist of a layer of ionic water in which the water molecules break down into a soup of hydrogen and oxygen ions, and deeper down superionic water in which the oxygen crystallises but the hydrogen ions float around freely within the oxygen lattice. At a depth of 7,000 km, the conditions may be such that methane decomposes into diamond crystals that rain downwards like hailstones. Scientists also believe that this kind of diamond rain occurs on Jupiter, Saturn, and Uranus. Very-high-pressure experiments at the Lawrence Livermore National Laboratory suggest that the top of the mantle may be an ocean of liquid carbon with floating solid 'diamonds'.
-                        The core of Neptune is likely composed of iron, nickel and silicates, with an interior model giving a mass about 1.2 times that of Earth. The pressure at the centre is 7 Mbar (700 GPa), about twice as high as that at the centre of Earth, and the temperature may be 5,400 K.
-                    </div>
                     <h3 class="contents_h3">Atmosferă</h3>
                     <!-- Atmosphere -->
                     <div class="planet_item_text">
@@ -237,7 +237,7 @@
                     <h2 id="moons_text" class="contents_h2">7. Sateliți</h2>
                     <!-- !!! Moons -->
                     <div class="planet_item_text">
-                        Planeta Neptun are 13 sateliți naturali cunoscuți. Cel mai mare satelit este Triton, cuprinzând peste 99,5% din masa totală care gravitează în jurul lui Neptun și este unicul suficient de masiv ca să capete o formă sferoidală. A fost descoperit de către William Lassell la doar 17 zile după descoperirea planetei Neptun. Spre deosebire de toți ceilalți sateliți din Sistemul solar, Triton are o orbită retrogradă, ceea ce indică faptul că mai degrabă a fost capturat decât s-a format împreună cu Neptun; probabil că inițial a fost o planetă pitică din centura Kuiper. Este destul de aproape de Neptun pentru a avea o rotație sincronă iar traiectoria sa are forma unei spirale lente spre interior din cauza accelerației mareelor. Acesta va fi dezintegrat în cele din urmă, peste circa 3,6 miliarde de ani, atunci când va atinge limita Roche. În 1989, Triton era cel mai rece dintre obiectele din Sistemul solar a căror temperatură fusese măsurată până la acea dată, având o temperatură de aproximativ −235 °C (38 K).
+                        Planeta Neptun are 14 sateliți naturali cunoscuți. Cel mai mare satelit este Triton, cuprinzând peste 99,5% din masa totală care gravitează în jurul lui Neptun și este unicul suficient de masiv ca să capete o formă sferoidală. A fost descoperit de către William Lassell la doar 17 zile după descoperirea planetei Neptun. Spre deosebire de toți ceilalți sateliți din Sistemul solar, Triton are o orbită retrogradă, ceea ce indică faptul că mai degrabă a fost capturat decât s-a format împreună cu Neptun; probabil că inițial a fost o planetă pitică din centura Kuiper. Este destul de aproape de Neptun pentru a avea o rotație sincronă iar traiectoria sa are forma unei spirale lente spre interior din cauza accelerației mareelor. Acesta va fi dezintegrat în cele din urmă, peste circa 3,6 miliarde de ani, atunci când va atinge limita Roche. În 1989, Triton era cel mai rece dintre obiectele din Sistemul solar a căror temperatură fusese măsurată până la acea dată, având o temperatură de aproximativ −235 °C (38 K).
                         Al doilea satelit al lui Neptun, în ordinea descoperirii, este satelitul neregulat Nereida, care are una dintre cele mai excentrice orbite comparativ cu orbitele tuturor celorlalți sateliți cunoscuți din Sistemul solar. Excentricitatea de 0,7512 face ca distanța față de Neptun să fie de șapte ori mai mare la apocentru decât la pericentru.
                         Între iulie și septembrie 1989, sonda spațială Voyager 2 a descoperit 6 sateliți noi ai planetei Neptun. Dintre aceștia, satelitul cu formă neregulată Proteus este notabil prin faptul că are dimensiunea maximă pe care o poate avea un corp de densitatea acestuia, fără a căpăta o formă sferică sub efectul propriei forțe de gravitație. Deși el este al doilea satelit ca mărime al lui Neptun, masa lui este numai 0,25% din masa lui Triton. Cei patru sateliți interiori ai lui Neptun — Naiada, Thalassa, Despina și Galatea — orbitează suficient de aproape pentru a fi în interiorul inelelor lui Neptun. Următorul satelit (ca dinstanță față de Neptun), Larissa, a fost descoperit în 1981, când a ocultat o stea. Această ocultație a fost atribuită inițial arcelor inelelor, dar când Voyager 2 a făcut observații asupra lui Neptun, în 1989, s-a constatat că ea a fost cauzată de satelit. Alți 5 sateliți neregulați ai lui Neptun au fost descoperiți între 2002 și 2003, descoperirea lor fiind publicată în 2004. Deoarece Neptun a fost zeul roman al mării, sateliții lui au fost denumiți de asemenea după divinități marine mai puțin cunoscute.
                     </div>

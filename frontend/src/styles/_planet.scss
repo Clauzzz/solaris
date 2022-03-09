@@ -81,7 +81,7 @@
         font-family: Roboto;
     }
 }
-.controls_topbar {
+.controls_topbar, .main_topbar {
     position: fixed;
     display: flex;
     z-index: 98;
@@ -93,6 +93,9 @@
     padding: 20px;
     padding-left: 10px;
     padding-right: 10px;
+}
+.main_topbar {
+    justify-content: flex-end;
 }
 .controls_container, .controls_back {
     position: relative;

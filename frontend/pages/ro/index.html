@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./frontend/dist/styles/main.css" type="text/css">
+    </head>
+    <body>
+        <div class="main_topbar">
+            <div id="language_switcher" class="language_switcher_container">
+                <svg viewBox="0 0 24 24" aria-labelledby="languageIconTitle" style="enable-background:new 0 0 24 24;" >
+                    <title id="languageIconTitle">Language</title> 
+                    <circle cx="12" cy="12" r="10"/> 
+                    <path d="M12,22 C14.6666667,19.5757576 16,16.2424242 16,12 C16,7.75757576 14.6666667,4.42424242 12,2 C9.33333333,4.42424242 8,7.75757576 8,12 C8,16.2424242 9.33333333,19.5757576 12,22 Z"/> 
+                    <path d="M2.5 9L21.5 9M2.5 15L21.5 15"/> 
+                </svg>
+                <span id="selected_language">EN</span>
+            </div>
+        </div>
+        <div data-planet="main" id="container"></div>
+        <div id="select_planet"></div>
+        <div class="planet_controls">
+            <span data-action="back">
+                <img class="loading_planet_inner" src="./frontend/assets/images/svg/left.svg">
+            </span>
+            <span id="planet_name"></span>
+            <span data-action="next">
+                <img class="loading_planet_inner" src="./frontend/assets/images/svg/right.svg">
+            </span>
+        </div>
+        <div id="loading_screen">
+            <div class="loading_body">
+                <div class="loading_planet_body_inner">
+                    <img class="loading_planet_inner" src="./frontend/assets/images/svg/earth.svg">
+                </div>
+                <div class="loading_planet_body_outer">
+                    <img class="loading_planet_outer" src="./frontend/assets/images/svg/saturn.svg">
+                </div>
+                <img class="loading_sun" src="./frontend/assets/images/svg/sun.png">
+            </div>
+            <div id="loading_message"><span id="loading_message_text"></span><span id="loading_dots"></span></div>
+        </div>
+        <script src="./frontend/assets/lib/three.min.js"></script>
+        <script src="./frontend/assets/lib/js/controls/OrbitControls.js"></script>
+        <script src="./frontend/dist/scripts/config.js"></script>
+        <script src="./frontend/dist/scripts/cookies.js"></script>
+        <script src="./frontend/dist/scripts/planet.js"></script>
+        <script src="./frontend/dist/scripts/camera.js"></script>
+        <script src="./frontend/dist/scripts/space.js"></script>
+        <script src="./frontend/dist/scripts/controls.js"></script>
+        <script src="./frontend/dist/scripts/loading.js"></script>
+        <script src="./frontend/dist/scripts/main.js"></script>
+    </body>
+</html>
