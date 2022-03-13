@@ -72,6 +72,9 @@
         }
         span {
             margin-left: 50px;
+            sup {
+                line-height: 50%;
+            }
         }
         display: flex;
         justify-content: space-between;

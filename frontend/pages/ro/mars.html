@@ -2,48 +2,217 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Mars">
+        <meta name="keywords" content="tech, computer science projects, threejs, mars, planets, space">
+        <title>Marte</title>
+        <link rel="icon" href="../frontend/assets/images/svg/mars.svg" type="image/x-icon"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./frontend/dist/styles/main.css" type="text/css">
+        <link rel="stylesheet" href="../frontend/dist/styles/main.css" type="text/css">
     </head>
     <body>
         <div id="loading_screen">
             <div class="loading_body">
                 <div class="loading_planet_body_inner">
-                    <img class="loading_planet_inner" src="./frontend/assets/images/svg/earth.svg">
+                    <img class="loading_planet_inner" src="../frontend/assets/images/svg/earth.svg">
                 </div>
                 <div class="loading_planet_body_outer">
-                    <img class="loading_planet_outer" src="./frontend/assets/images/svg/saturn.svg">
+                    <img class="loading_planet_outer" src="../frontend/assets/images/svg/saturn.svg">
                 </div>
-                <img class="loading_sun" src="./frontend/assets/images/svg/sun.png">
+                <img class="loading_sun" src="../frontend/assets/images/svg/sun.png">
             </div>
             <div id="loading_message"><span id="loading_message_text"></span><span id="loading_dots"></span></div>
         </div>
+        <div id="controls_topbar" class="controls_topbar">
+            <div class="controls_back">
+                <a id="back_to_planets">
+                    <img src="../frontend/assets/images/svg/back.svg"/>
+                </a>
+                
+            </div>
+            <div class="controls_container">
+                <img data-mode="document" class="selected_mode" src="../frontend/assets/images/svg/document.svg"/>
+                <img data-mode="stats" src="../frontend/assets/images/svg/stats.svg"/>
+                <img data-mode="space" src="../frontend/assets/images/svg/shuttle.svg"/>
+            </div>
+            <div id="language_switcher" class="language_switcher_container">
+                <svg viewBox="0 0 24 24" aria-labelledby="languageIconTitle" style="enable-background:new 0 0 24 24;" >
+                    <title id="languageIconTitle">Language</title> 
+                    <circle cx="12" cy="12" r="10"/> 
+                    <path d="M12,22 C14.6666667,19.5757576 16,16.2424242 16,12 C16,7.75757576 14.6666667,4.42424242 12,2 C9.33333333,4.42424242 8,7.75757576 8,12 C8,16.2424242 9.33333333,19.5757576 12,22 Z"/> 
+                    <path d="M2.5 9L21.5 9M2.5 15L21.5 15"/> 
+                </svg>
+                <span id="selected_language">EN</span>
+            </div>
+        </div>
+        <div id="controls_anchors" class="table_of_contents">
+            <a href="#general"><img src="../frontend/assets/images/svg/contents_general.svg"></a>
+            <a href="#characteristics"><img src="../frontend/assets/images/svg/contents_characteristics.svg"></a>
+            <a href="#orbit"><img src="../frontend/assets/images/svg/contents_orbit.svg"></a>
+            <a href="#moons"><img src="../frontend/assets/images/svg/contents_earth_moon.svg"></a>
+            <a href="#exploration"><img src="../frontend/assets/images/svg/contents_exploration.svg"></a>
+            <a href="#observation"><img src="../frontend/assets/images/svg/contents_observation.svg"></a>
+        </div>
+        <div class="controls_stats_container">
+            <div class="controls_stats">
+                <div class="controls_stats_row">
+                    <label>Masă</label>
+                    <span>0.107 ori a Pământului</span>
+                </div>
+                <div class="controls_stats_row">
+                    <label>Raza</label>
+                    <span>3389.5 ± 0.2 km</span>
+                </div>
+                <div class="controls_stats_row">
+                    <label>Densitate</label>
+                    <span>3.9335 g/cm<sup>3</sup></span>
+                </div>
+                <div class="controls_stats_row">
+                    <label>Temperatura medie la suprafață</label>
+                    <span>-63 °C</span>
+                </div>
+                <div class="controls_stats_row">
+                    <label>Distanță medie față de Soare</label>
+                    <span>1.523679 AU</span>
+                </div>
+                <div class="controls_stats_row">
+                    <label>Durata unei zile</label>
+                    <span>24 h 37 min 36s</span>
+                </div>
+                <div class="controls_stats_row">
+                    <label>Durata unui an</label>
+                    <span>686.980 d</span>
+                </div>
+                <div class="controls_stats_row">
+                    <label>Sateliți naturali</label>
+                    <span>2</span>
+                </div>
+            </div>
+        </div>
+
         <div class="planet_item_container">
+
             <div data-planet="4" id="container" class="planet_background_container"></div>
             <div class="planet_text_container">
                 <div class="planet_item_title">
                     <div>
-                        Mars
-                        <img src="./frontend/assets/images/svg/mars.svg"/>
+                        Marte
+                        <img src="../frontend/assets/images/svg/mars.svg"/>
                     </div>
                     <div class="planet_item_subtitle">
-                        From Wikipedia, the free encyclopedia:<a href="https://en.wikipedia.org/wiki/Mars">Mars</a>
+                        De la Wikipedia, enciclopedia liberă:<a href="https://en.wikipedia.org/wiki/Mars">Marte</a>
                     </div>
                 </div>
-        
+
                 <div class="planet_text_subcontainer">
-                    
+                    <span class="anchor_point" id="general"></span>
+                    <span class="anchor_point" id="characteristics"></span>
+                    <span class="anchor_point" id="orbit"></span>
+                    <span class="anchor_point" id="moons"></span>
+                    <span class="anchor_point" id="exploration"></span>
+                    <span class="anchor_point" id="observation"></span>
+
+                    <h2 id="general_text" class="contents_h2">1. General</h2>
+                    <div class="planet_item_text">
+                       Marte este a patra planetă de la Soare și penultima ca mărime din Sistemul Solar. Marte poartă numele zeului roman al războiului și este adesea denumită Planeta Roșie, deoarece oxidul de fier predominant pe suprafața sa îi conferă un aspect roșiatic distinctiv între corpurile astronomice vizibile cu ochiul liber. Marte este o planetă telurică cu o atmosferă subțire, având caracteristici de suprafață care amintesc atât de craterele de impact ale Lunii, cât și de văi, deșerturi și calote glaciare polare ca ale Pământului.Zilele și anotimpurile sunt comparabile cu cele ale Pământului, deoarece perioada de rotație, precum și înclinarea axială în raport cu planul ecliptic sunt foarte similare. Marte găzduiește Muntele Olimp, cel mai mare vulcan și cel mai cunoscut munte de pe orice planetă din Sistemul Solar și Valles Marineris, unul dintre cele mai mari canioane din Sistemul Solar. Bazinul din emisfera nordică acoperă 40 % din planetă și poate fi un semn de impact imens. Marte are doi sateliți, Phobos și Deimos, care sunt mici și au o formă neregulată. Este posibil ca aceștia să fie asteroizi captați, similare cu 5261 Eureka, un troian al lui Marte.Marte a fost explorată de numeroase nave spațiale fără echipaj. Mariner 4, lansat de NASA la 28 noiembrie 1964, a fost prima navă spațială care a vizitat Marte, cea mai mare apropiere de planetă având loc la 15 iulie 1965. Mariner 4 a detectat slaba centură de radiații marțiene, măsurată la aproximativ 0,1 % din cea a Pământului și a surprins primele imagini ale unei alte planete din spațiul profund. La 20 iulie 1976, Viking 1 a efectuat prima aterizare de succes pe suprafața marțiană. Deși nava spațială sovietică Marte 3 a avut o amartizare lină în decembrie 1971, contactul a fost pierdut după câteva secunde. La 4 iulie 1997, nava spațială Mars Pathfinder a aterizat pe Marte, iar la 5 iulie, roverul misiunii, Sojourner a devenit primul rover robotic care a operat pe Marte. Pathfinder a fost urmat de roverele Spirit și Opportunity, care au aterizat în ianuarie 2004 și au funcționat până la 22 martie 2010 respectiv 10 iunie 2018. Orbitatorul Mars Express, prima navă spațială a Agenției Spațiale Europeane a ajuns pe orbită la 25 decembrie 2003. NASA a aterizat roverul Curiosity la 6 august 2012, ca parte a misiunii sale Mars Science Laboratory de a investiga clima și geologia marțiană. La 24 septembrie 2014, Organizația indiană de cercetare spațială a devenit a patra agenție spațială care a vizitat Marte, când misiunea sa interplanetară Mars Orbiter Mission a ajuns cu succes pe orbită. Emiratele Arabe Unite a devenit a cincea țară care s-a angajat cu succes într-o misiune pe Marte, inserând un orbitator în atmosfera marțiană la 9 februarie 2021 iar China cea de-a șasea țară când misiunea Tianwen-1 a intrat pe orbita planetei la 10 februarie 2021. Roverul Perseverance al NASA a aterizat cu succes pe Marte la 18 februarie 2021.Există cercetări în curs de desfășurare care evaluează potențialul de locuibilitate din trecut al lui Marte, precum și posibilitatea existenței vieții. Sunt planificate viitoare misiuni de astrobiologie, cum ar fi roverul Rosalind Franklin al Agenției Spațiale Europene. Apa lichidă nu poate exista pe suprafața planetei Marte din cauza presiunii atmosferice scăzute, care este mai mică de 1 % din presiunea atmosferică pe Terra, cu excepția unor mici creșteri pentru perioade scurte. Cele două calote glaciare polare par a fi făcute în mare parte din apă. Volumul de apă din calota glaciară a Polului Sud, dacă este topită, ar fi suficient pentru a acoperi întreaga suprafață planetară până la o adâncime de 11 metri. În noiembrie 2016, NASA a raportat găsirea unei cantități mari de gheață subterană în regiunea Utopia Planitia de pe Marte. Se estimează că volumul de apă detectat este echivalent cu volumul de apă din Lacul Superior.Marte poate fi observat cu ușurință de pe Pământ cu ochiul liber, la fel și colorarea sa roșiatică. Magnitudinea sa aparentă (strălucire) atinge -2,94, care este depășită doar de Venus, Lună și Soare.
+                    </div>
+                    <h2 id="characteristics_text" class="contents_h2">2. Caracteristici fizice</h2>
+                    <div class="planet_item_text">
+                        Marte are aproximativ jumătate din diametrul Pământului, cu o suprafață doar puțin mai mică decât suprafața totală a uscatului Pământului. Marte este mai puțin densă decât Pământul, având aproximativ 15 % din volumul Pământului și 11 % din masa Pământului, ceea ce duce la aproximativ 38 % din greutatea suprafeței Pământului. Aspectul roșiatic-portocaliu al suprafeței marțiene este cauzat de oxidul de fier (III) sau de rugină. Alte culori comune de suprafață includ auriu, maro, bronz și verzui, în funcție de mineralele prezente.
+                    </div>
+                    <h3 class="contents_h3">Structura internă</h3>
+                    <div class="planet_item_text">
+                        La fel ca Pământul, Marte a suferit o diferențiere, ceea ce a avut ca rezultat un nucleu metalic dens suprapus de materiale mai puțin dense. Modelele actuale ale interiorului său implică un miez cu o rază de aproximativ 1,794 ± 65 km constând în principal din fier și nichel cu aproximativ 16-17 % sulf. Acest miez de sulfură de fier (II) este considerat a fi de două ori mai bogat în elemente mai ușoare decât cel al Pământului.Nucleul este înconjurat de o manta de silicat care a format multe dintre caracteristicile tectonice și vulcanice de pe planetă, dar pare să fie latent. Pe lângă siliciu și oxigen, cele mai abundente elemente din crusta marțiană sunt: fier, magneziu, aluminiu, calciu și potasiu. Grosimea medie a scoarței planetei este de aproximativ 50 km cu o grosime maximă de 125 km. Crusta Pământului are o medie de 40 km.Marte este activ seismic, InSight înregistrând în 2019 peste 450 de cutremure și evenimente conexe.
+                    </div>
+                    <h3 class="contents_h3">Geologie de suprafață</h3>
+                    <div class="planet_item_text">
+                        Marte este o planetă telurică alcătuită din minerale care conțin siliciu și oxigen, metale și alte elemente care formează de obicei roca.Suprafața lui Marte este compusă în principal din bazalt tholeiitic, deși unele părți sunt mai mult bogate în siliciu decât bazaltul tipic și pot fi similare cu rocile andezit de pe Pământ sau cu sticla de siliciu. Regiunile de albedo scăzut sugerează concentrații de plagioclase, regiunile cu albedo scăzut din nord prezintă concentrații mai mari decât cele normale de silicați și sticlă de siliciu. Părți din zonele muntoase din sud includ cantități detectabile de piroxeni cu un conținut ridicat de calciu. S-au găsit concentrații localizate de hematit și olivină. O mare parte a suprafeței este acoperită de praf fin de oxid de fier (III).
+                        Deși Marte nu are dovezi ale unui câmp magnetic global structurat, observațiile arată că părți ale scoarței planetei au fost magnetizate și că inversiunile geomagnetice au avut loc în trecut. Acest paleomagnetism al mineralelor sensibil magnetic este similar cu benzile alternative aflate pe fundul oceanelor Pământului. O teorie, publicată în 1999 și reexaminată în octombrie 2005 (cu ajutorul Mars Global Surveyor), indică faptul că aceste benzi sugerează o activitate tectonică pe Marte în urmă cu patru miliarde de ani, înainte de dinamul planetar să fi încetat să funcționeze și câmpul magnetic al planetei să se fi stins.Se crede că, în timpul formării Sistemului Solar, Marte a fost creat ca urmare a unui proces stohastic de acreție a materialului de pe discul protoplanetar care orbita Soarele. Marte are multe caracteristici chimice distinctive cauzate de poziția sa în Sistemul Solar. Elementele cu puncte de fierbere relativ scăzute, cum ar fi clor, fosfor și sulf, sunt mult mai frecvente pe Marte decât pe Pământ; aceste elemente au fost probabil împinse spre exterior de vântul solar energic al tânărului Soare.După formarea planetelor, toate au fost supuse așa-numitului „Marele bombardament târziu”. Aproximativ 60 % din suprafața planetei Marte prezintă înregistrări ale impactelor din acea perioadă, în timp ce o mare parte a suprafeței rămase a fost probabil acoperită de bazine imense de impact cauzate de aceste evenimente. Există dovezi ale unui bazin de impact enorm în emisfera nordică a planetei Marte, care are laturi de 10.600 km cu 8.500 km sau de aproximativ patru ori mai mare decât Bazinul Polul Sud-Aitken al Lunii, cel mai mare bazin de impact descoperit până în prezent. Această teorie sugerează că Marte a fost lovit de un corp de dimensiunea lui Pluto acum aproximativ patru miliarde de ani. Evenimentul, despre care se crede că este cauza dihotomiei emisferice marțiene, a creat bazinul neted Borealis care acoperă 40 % din planetă.
+                    </div>
+                    <div class="planet_item_text">
+                        Istoria geologică a planetei Marte poate fi împărțită în mai multe perioade, dar următoarele sunt cele trei perioade principale:
+                        <ol>
+                            <li>
+                                Perioada Noachian (denumită după Noachis Terra): Formarea celor mai vechi elemente de suprafață existente pe Marte, în urmă cu 4,5 până la 3,5 miliarde de ani. Crusta planetei formată în această epocă prezintă numeroase cratere de impact, multe dintre ele masive (scară planetară). Se crede că protuberanța Tharsis, o zonă montană vulcanică, s-a format în timpul acestei perioade, cu inundații extinse de apă lichidă la sfârșitul acelei perioade.</li>
+                            <li>
+                                Perioada Hesperian (denumită după Hesperia Planum): acum 3,5 până la 3,3-2,9 miliarde de ani în urmă. Perioada hesperiană este marcată de formarea unor mari câmpii de origine vulcanică.
+                            </li>
+                            <li>
+                                Perioada Amazonian (denumită după Amazonis Planitia): acum 3,3-2,9 miliarde de ani până în prezent. Regiunile amazoniene au puține cratere cu impact de meteoriți, dar sunt altfel destul de variate. Muntele Olimp s-a format în această perioadă, alături de curgerile de lavă din alte zone de pe Marte.
+                            </li>
+                        </ol>
+                        Activitatea geologică se desfășoară încă pe Marte. Valea Athabasca prezintă urme de curgeri de lavă datate la aproximativ 200 de milioane de ani în urmă. Curgerile de apă în grabenele din Cerberus Fossae au avut loc cu cel mult 20 milioane de ani în urmă, indicând activitate vulcanică cel puțin la fel de recentă. La 19 februarie 2008, imaginile de la Mars Reconnaissance Orbiter au arătat dovezi ale unei avalanșe pornite de pe o stâncă de 700 de metri înălțime.
+                    </div>
+                    <h3 class="contents_h3">Sol</h3>
+                    <div class="planet_item_text">
+                        Datele returnate de landerul Phoenix arată că solul marțian este ușor alcalin și conține elemente cum ar fi magneziu, sodiu, potasiu și clor. Acești nutrienți se găsesc și în solurile de pe Pământ și sunt necesare pentru creșterea plantelor. Experimentele efectuate de lander au arătat că solul marțian are un pH de bază de 7,7 și conține 0,6 % perclorat de sare. Aceasta este o concentrație foarte mare și face solul marțian toxic.Pe întreaga suprafață a lui Marte, pe pantele abrupte ale craterelor, canioanelor și văilor, se întâlnesc în mod obișnuit fâșii întunecate care cu timpul devin mai deschise. Uneori, astfel de fâșii încep într-o zonă mică și apoi se întind pe sute de metri. Au fost, de asemenea, observate dungi de-a lungul marginilor de stâncă și alte obstacole naturale de-a lungul cursului inițial. Conform celei mai populare ipoteze, aceste dungi sunt straturi subterane întunecate de sol expuse după avalanșe de praf sau turbioane de praf.
+                    </div>
+                    <h3 class="contents_h3">Atmosferă</h3>
+                    <div class="planet_item_text">
+                        Marte și-a pierdut magnetosfera în urmă cu 4 miliarde de ani, probabil din cauza numeroaselor impacte cu asteroizi, astfel încât vântul solar interacționează direct cu ionosfera marțiană, scăzând densitatea atmosferică prin eliminarea atomilor din stratul exterior. Atât sonda Mars Global Surveyor cât și Mars Express au detectat particule atmosferice ionizate care scapă în spațiu în urma planetei Marte, și această pierdere atmosferică este studiată de către orbitatorul MAVEN. Față de Pământ, atmosfera lui Marte este foarte subțire. Presiunea atmosferică variază de la un nivel scăzut de 30 Pa pe Muntele Olimp la peste 1.155 Pa în Hellas Planitia, cu o presiune medie la nivelul suprafeței de 600 Pa. Pe Pământ, o astfel de presiune se găsește la o altitudine de 35 km deasupra suprafeței mării. Presiunea medie de suprafață este de doar 0,6 % din cea a Pământului. Presiunea în atmosfera lui Marte scade cu altitudinea mai lent decât pe Pământ, scăderea relativă apare aproximativ la fiecare 10,8 km (pe Pământ la aproximativ fiecare 6 km). Acest lucru se datorează accelerației gravitaționale mult mai reduse pe suprafața planetei Marte (aproximativ 38 % din cea a Pământului).Atmosfera de pe Marte este formată din aproximativ 96 % dioxid de carbon, 1,93 % argon și 1,89 % azot împreună cu urme de oxigen și apă. Atmosfera este destul de rarefiată, conținând particule de aproximativ 1,5 µm în diametru, care conferă cerului marțian o culoare opacă când este văzută de la suprafață. Poate căpăta o nuanță roz datorită particulelor de oxid de fier suspendate în atmosferă.
+                    </div>
+                    <h3 class="contents_h3">Metan</h3>
+                    <div class="planet_item_text">
+                        În atmosfera marțiană a fost detectat metan. Concentrația de metan variază de la aproximativ 0,24 ppb în timpul iernii, în nord la aproximativ 0,65 ppb în timpul verii.Metanul poate exista în atmosfera lui Marte o perioadă limitată de timp până când este distrus - estimările duratei sale de viață variază de la 0,6–4 ani, astfel încât prezența sa indică faptul că o sursă activă de gaz trebuie să fie prezentă. Metanul ar putea fi produs printr-un proces non-biologic, cum ar fi serpentinizarea care implică apă, dioxid de carbon și olivină minerală și care este cunoscut a fi obișnuit pe Marte. Formele de viață microbiană metanogenă sunt printre surse posibile. Chiar dacă misiunile rover ar determina faptul că viața marțiană microscopică este sursa metanului, formele de viață sunt probabil situate cu mult sub suprafață, în afara întinderii roverului.
+                    </div>
+                    <h3 class="contents_h3">Aurora</h3>
+                    <div class="planet_item_text">
+                        În 1994, misiunea Mars Express a Agenției Spațiale Europene a găsit o strălucire ultravioletă provenită de la „umbrele magnetice” din emisfera sudică. Marte nu are un câmp magnetic global care ghidează particulele încărcate care intră în atmosferă. Marte are câmpuri magnetice multiple în formă de umbrelă, în principal în emisfera sudică, care sunt resturi ale unui câmp global care a scăzut în urmă cu miliarde de ani.La sfârșitul lunii decembrie 2014, nava spațială MAVEN a NASA a detectat aurore răspândite în emisfera nordică a planetei și a coborât la aproximativ 20-30 de grade latitudinea nordică a ecuatorului lui Marte. Particulele care provoacă aurora au pătruns în atmosfera marțiană, creând aurore sub 100 km deasupra suprafeței (aurorele Pământului variază între 100 km și 500 km deasupra suprafeței). Câmpurile magnetice din vântul solar cad ca niște perdele peste Marte, iar particulele încărcate urmează liniile câmpului magnetic al vântului solar în atmosferă, determinând apariția aurorei în afara umbrelelor magnetice.La 18 martie 2015, NASA a raportat detectarea unei aurore care nu este pe deplin înțeleasă și a unui nor de praf neexplicat în atmosfera de pe Marte.În septembrie 2017, NASA a raportat că nivelurile de radiații de pe suprafața planetei Marte au fost temporar dublate și au fost asociate cu o aurora de 25 de ori mai strălucitoare decât oricare observată anterior, din cauza unei furtuni solare masive și neașteptate, la mijlocul lunii.
+                    </div>
+                    <h3 class="contents_h3">Climă</h3>
+                    <div class="planet_item_text">
+                        Dintre toate planetele Sistemului Solar, anotimpurile de pe Marte sunt cele mai asemănătoare cu cele de pe Terra, datorită înclinării similare a axei de rotație a ambelor planete pe planul orbitei. Lungimile anotimpurilor marțiene sunt de aproximativ două ori mai mari decât cele ale Pământului, deoarece distanța mai mare a lui Marte față de Soare face ca anul marțian să aibă o durată echivalentă cu aproximativ doi ani pe Pământ. Temperatura suprafeței de pe Marte variază de la valori minime de aproximativ -143 °C (iarna la calotele glaciare) până la maxime de până la 35 °C (vara la ecuator). Intervalul mare de temperaturi se datorează atmosferei subțiri care nu poate stoca multă căldură solară, presiunea atmosferică scăzută și inerția termică scăzută a solului marțian. Planeta este de 1,52 ori mai departe de Soare decât Pământul, rezultând doar 43 % din cantitatea de lumină solară.Clima de pe Marte este afectată și de excentricitatea relativ mare a orbitei sale. Marte este aproape de periheliu când este vară în emisfera sudică și iarnă în emisfera nordică și aproape de afeliu când este iarnă în emisfera sudică și vară în nord. Ca urmare, anotimpurile din emisfera sudică sunt mai extreme, iar anotimpurile din nord sunt mai blânde. Temperaturile de vară în sud pot fi mai calde cu până la 30 °C decât vara în nord la aceeași latitudine.Marte are cele mai mari furtuni de praf din Sistemul Solar, atingând viteze de peste 160 km/h. Acestea pot varia de la o furtună pe o suprafață mică, până la furtuni gigantice care acoperă întreaga planetă. Furtunile globale tind să apară atunci când Marte este cel mai aproape de Soare și crește temperatura.
+                        Furtunile de nisip sunt un fenomen foarte periculos în contextul viitoarelor zboruri către Marte. Suprafața planetei devine opacă la razele soarelui și totul este acoperit cu un strat de praf fin. Acest lucru poate avea un efect negativ asupra dispozitivelor mecanice și electronice care operează pe planetă, inclusiv a panourilor solare, ale căror performanțe vor scădea semnificativ. Aceste ipoteze au fost confirmate în timpul furtunii globale de praf din 2007, după care s-a observat o scădere semnificativă a energiei generate de panourile solare instalate la bordul roverului Oportunity.
+                    </div>
+                    <h2 id="orbit_text" class="contents_h2">3. Orbită și rotație</h2>
+                    <div class="planet_item_text">
+                        Distanța medie a lui Marte față de Soare este de aproximativ 230 milioane km iar perioada orbitală (an marțian) durează cât 687 zile pe Terra. O zi pe Marte (numită sol) este doar puțin mai lungă decât o zi pe Terra: 24 ore, 39 minute și 35,244 secunde. Un an marțian este egal cu 1,8809 ani pe Terra sau 1 an, 320 zile și 18,2 ore.Înclinarea axială a lui Marte este de 25,19 grade în raport cu planul său orbital, care este similară cu înclinarea axială a Pământului. Drept urmare, Marte are anotimpuri ca Pământul, deși pe Marte sunt aproape de două ori mai lungi, deoarece perioada sa orbitală este mult mai lungă. În orientarea sa actuală, polul nord al lui Marte indică o direcție similară cu locația stelei Deneb.Marte are o excentricitate orbitală relativ pronunțată, de aproximativ 0,09; printre planetele Sistemului Solar numai Mercur are o excentricitate orbitală mai mare. Se știe că în trecut, Marte a avut o orbită mult mai circulară. La un moment dat, cu 1,35 milioane de ani în urmă (ani tereștri), Marte a avut o excentricitate de aproximativ 0,002, mult mai mică decât cea a Pământului de astăzi. Ciclul de excentricitate al lui Marte este de 96.000 de ani tereștri, comparativ cu ciclul Pământului de 100.000 de ani. Marte are un ciclu de excentricitate mult mai lung, cu o perioadă de 2,2 milioane de ani tereștri, iar acest lucru suprapune ciclul de 96.000 de ani din graficele de excentricitate. În ultimii 35.000 de ani, orbita lui Marte a devenit ceva mai excentrică din cauza efectelor gravitaționale ale celorlalte planete. Distanța cea mai apropiată între Pământ și Marte va continua să scadă ușor pentru următorii 25.000 de ani.
+                    </div>
+
+                    <h2 id="moons_text" class="contents_h2">4. Sateliți</h2>
+                    <div class="planet_item_text">
+                        Marte are doi sateliți naturali relativ mici, în formă neregulată, ale căror orbite sunt foarte aproape de planetă: Phobos (diametru de aproximativ 22 km) și Deimos (diametru de aproximativ 12 km). Ei pot fi asteroizi captați sau corpuri formate din materie ejectată de impacturile cu planeta. Ambii sateliți au fost descoperiți în 1877 de Asaph Hall. Numele lor provine de la fii zeului grec al războiului Ares: Phobos („panică”, „frică”) și Deimos („teroare”, „temere”), care în mitologia greacă și-au însoțit tatăl în bătălii. Echivalentul lui Ares în mitologia romană a fost Marte. În greaca modernă, planeta își păstrează numele vechi de Ares (Aris: Άρης).De la suprafața lui Marte, mișcările lui Phobos și ale lui Deimos apar diferit de cele ale Lunii. Phobos răsare la vest, apune la est și răsare din nou după doar 11 ore. Deimos, fiind în afara orbitei sincrone - unde perioada orbitală s-ar potrivi cu perioada de rotație a planetei - răsare la est, dar se mișcă lent. Perioada orbitală a lui Deimos (de aproximativ 30,5 ore) depășește ziua solară marțiană (24,5 ore). Pentru un observator aflat la ecuator, de la răsărit până la apus trec 2,7 zile.
+                    </div>
+                    <div class="planet_item_text">
+                        Deoarece orbita lui Phobos se află sub altitudinea sincronă, forța mareică de pe planeta Marte îi reduce treptat orbita. În aproximativ 50 de milioane de ani, s-ar putea să se prăbușească pe suprafața lui Marte sau să se despartă într-o structură de inel în jurul planetei. Deimos este mult mai departe de planetă, forța mareică este mică pe ea, dar teoretic, la fel ca Luna Pământului, se îndepărtează lent de planetă.Originea celor doi sateliți nu este bine înțeleasă. Până de curând, se credea că, datorită albedo-ul lor scăzut și a compoziției condrit carbonat, acestea erau considerate similare cu asteroizii, susținând teoria capturii. Orbita instabilă a lui Phobos pare să indice o captare relativ recentă. Ambele au însă orbite circulare, în apropierea ecuatorului, lucru neobișnuit pentru obiectele capturate, iar dinamica de captare necesară este complexă. Acreția în istoria timpurie a lui Marte este o altă posibilitate credibilă, care însă nu explică de ce compoziția lor pare să semene cu asteroizi și nu cu Marte.O a treia posibilitate este implicarea unui al treilea corp sau un tip de perturbare a impactului. Noi dovezi observaționale indică faptul că Phobos are un interior extrem de poros care indică că acesta conține în principal silicate stratificate și alte minerale cunoscute de pe Marte, ceea ce sugerează formarea sa din materialul evacuat prin impactul cu suprafeța planetei, care ulterior s-a contopit, similar cu teoria predominanta pentru originea Lunii. Deși spectrele suprafețelor sateliților în lumina vizibilă și în infraroșu apropiat seamănă cu cele ale asteroizilor din centura exterioară, spectrul lui Phobos în infraroșu îndepărtat nu seamănă cu nici un condrit. 
+                    </div>
+
+
+                    <h2 id="exploration_text" class="contents_h2">5. Explorare</h2>
+                    <div class="planet_item_text">
+                        Zeci de nave spațiale fără echipaj, inclusiv orbitatori, landeri și roveri au fost trimise pe Marte de către Uniunea Sovietică, Statele Unite, Europa, India, Emiratele Arabe Unite și China pentru a studia suprafața, clima și geologia planetei.În prezent Marte găzduiește unsprezece nave spațiale funcționale: opt pe orbită — 2001 Mars Odyssey, Mars Express, Mars Reconnaissance Orbiter, MAVEN, Mars Orbiter Mission, ExoMars Trace Gas Orbiter, Hope Mars Mission și Tianwen-1 — și trei la suprafață — Curiosity (rover), InSight (lander) și Perseverance (rover). Publicul poate solicita imagini de pe Marte prin intermediul programului HiWish al Mars Reconnaissance Orbiter.Misiunea Mars Science Laboratory, numită Curiosity a fost lansată la 26 noiembrie 2011 și a ajuns pe Marte pe 6 august 2012. Roverul are o viteză de mișcare de până la 90 m pe oră. Experimentele includ un laser chimic care poate deduce compoziția rocilor de la o distanță de 7 m. La 10 februarie 2013, Curiosity a obținut primele probe de roci adânci prelevate deja dintr-un alt corp planetar, folosind burghiul său încorporat. În același an, a descoperit că solul lui Marte conține între 1,5 % și 3 % apă în masă (deși atașat la alți compuși și astfel nu este accesibil în mod liber). Observațiile făcute de Mars Reconnaissance Orbiter au arătat anterior posibilitatea apariției apei în timpul celor mai calde luni de pe Marte.La 24 septembrie 2014, Mars Orbiter Mission, lansată de Organizația Spațială Indiană de Cercetare (ISRO), a ajuns pe orbita lui Marte. ISRO a lansat misiunea la 5 noiembrie 2013, cu scopul de a analiza atmosfera și topografia marțiană. Misiunea a folosit o orbită de transfer Hohmann pentru a scăpa de influența gravitațională a Pământului și a fost catapultat într-o călătorie de nouă luni spre Marte. Este prima misiune interplanetară asiatică de succes.Agenția Spațială Europeană, în colaborare cu Roscosmos, a lansat ExoMars Trace Gas Orbiter și landerul Schiaparelli la 14 martie 2016. În timp ce Trace Gas Orbiter a intrat cu succes pe orbita lui Marte la 19 octombrie 2016, Schiaparelli s-a prăbușit în timpul încercării de aterizare.În mai 2018 a fost lansat landerul InSight al NASA. Misiunea a ajuns pe Marte în noiembrie 2018. InSight a detectat primul cutremur marțian în aprilie 2019.În 2019, nava spațială MAVEN a cartografiat pentru prima dată modelele eoliene la mare altitudine la nivelul întregii planete. S-a descoperit că vânturile care se află la kilometri deasupra suprafeței păstrau informații despre formele de pământ aflate dedesubt.Roverul Perseverance a aterizat cu succes pe suprafața lui Marte la 18 februarie 2021. Rover-ul va colecta mostre pentru o misiune viitoare de recuperare care le va aduce pe Pământ.
+                    </div>
+                    <h3 class="contents_h3">Viitor</h3>
+                    <div class="planet_item_text">
+                        Agenția Spațială Europeană va lansa roverul Rosalind Franklin în septembrie 2022. Conceptul actual pentru misiunea Mars Sample Return se va lansa în 2026 și va avea un hardware construit de NASA și ESA.Au fost propuse mai multe planuri pentru o misiune umană pe Marte de-a lungul secolului XX și în secolul XXI, dar nici o misiune umană nu a fost lansată încă. Fondatorul SpaceX, Elon Musk, a prezentat în septembrie 2016 un plan pentru lansarea unei misiuni cu echipaj pe Marte în 2024 la un cost estimativ de dezvoltare de 10 miliarde de dolari, dar nu se preconizează că această misiune va avea loc înainte de 2027. Actul de autorizare NASA din 2017 orientează NASA să ducă oameni aproape de sau pe suprafața lui Marte la începutul anilor 2030.
+                    </div>
+
+
+                    <h2 id="observation_text" class="contents_h2">6. Observații istorice</h2>
+                    <h3 class="contents_h3">Observații antice și medievale</h3>
+                    <div class="planet_item_text">
+                        Vechii sumerieni credeau că Marte era Nergal, zeul războiului și al bolilor. Existența lui Marte ca obiect rătăcitor pe cerul nopții a fost înregistrată de astronomii egipteni antici și, până în 1534 î.Hr., erau familiarizați cu mișcarea retrogradă a planetei. În perioada Imperiului Neobabilonian, astronomii babilonieni făceau înregistrări periodice despre pozițiile planetelor și observații sistematice ale comportamentului lor. Despre Marte, ei știau că la fiecare 79 de ani există 37 de perioade sinodice sau 42 de cicluri zodiacale. Au inventat metode aritmetice pentru a face corecții minore la pozițiile previzionate ale planetelor. În Grecia antică planeta era cunoscută sub numele de Πυρόεις (Pyrόeis).În secolul al IV-lea î.Hr., Aristotel a remarcat că Marte a dispărut în spatele Lunii în timpul unei ocultări, indicând faptul că planeta era mai departe. Ptolemeu, un grec care trăia în Alexandria, a încercat să abordeze problema mișcării orbitale a lui Marte. Modelul lui Ptolemeu și lucrarea sa colectivă asupra astronomiei au fost prezentate în colecția cu mai multe volume Almagest, care a devenit tratatul autoritar asupra astronomiei occidentale pentru următoarele paisprezece secole. Literatura din China antică confirmă faptul că Marte a fost cunoscută de astronomii chinezi nu mai târziu în secolul al IV-lea î.Hr. În culturile din Asia de Est, Marte este denumită în mod tradițional „steaua focului” (chineză:火星 ), pe baza celor cinci elemente.În timpul secolului al XVII-lea, aristocratul danez Tycho Brahe a măsurat paralaxa diurnă a lui Marte pe care Johannes Kepler a folosit-o pentru a face un calcul preliminar al distanței relative față de planetă. Când telescopul a devenit disponibil, paralaxa diurnă a lui Marte a fost din nou măsurată în efortul de a determina distanța Soare-Pământ. Aceasta a fost realizată pentru prima dată de Giovanni Domenico Cassini în 1672. Măsurătorile timpurii de paralaxă au fost împiedicate de calitatea instrumentelor. Singura ocultare a lui Marte de către Venus observată a fost cea din 13 octombrie 1590, văzută de Michael Maestlin la Heidelberg. În 1610, Marte a fost privită de astronomul italian Galileo Galilei, care a fost primul care a văzut-o prin telescop. Astronomul olandez Christiaan Huygens a fost primul care a observat detaliile suprafeței sale și a determinat perioada de rotație a planetei.
+                    </div>
+                    <h3 class="contents_h3">„Canale” marțiene</h3>
+                    <div class="planet_item_text">
+                        Până în secolul al XIX-lea, rezoluția telescoapelor a atins un nivel suficient pentru identificarea caracteristicilor suprafeței. La 5 septembrie 1877 a avut loc o opoziție perihelică când Marte a fost deosebit de aproape de Pământ. Astronomul italian Giovanni Schiaparelli a profitat de această situație pentru a crea prima hartă a lui Marte cu ajutorul telescopului său de 22 cm. El a observat niște linii lungi, drepte, pe suprafața lui Marte, pe care le-a numit canali, care s-au dovedit ulterior o iluzie optică. Schiaparelli le-a considerat un fenomen natural și le-a dat nume de râuri cunoscute pe Pământ.
+                        Influențat de observații, orientalistul Percival Lowell a fondat un observator care avea telescoape de 30 și 45 cm. Observatorul a fost folosit pentru a observa Marte în 1894 și la următoarele opoziții mai puțin favorabile. A publicat mai multe cărți despre Marte și viața de pe planetă, care au avut un impact mare asupra publicului. Canali au fost descoperite în mod independent de alți astronomi, ca Henri Joseph Perrotin și Louis Thollon Nice, folosind unul dintre cele mai mari telescoape din acea vreme.Schimbările sezoniere (constând în diminuarea calotelor polare și a zonelor întunecate formate în timpul verii marțiene) în combinație cu canalele au dus la speculații despre viața pe Marte inclusiv credința de multă vreme că Marte conține mări și vegetație vastă. Telescoape existente atunci nu aveau o rezoluție suficientă pentru a furniza dovezi concludente. Pe măsură ce au fost construite telescoape mai mari, au fost observate linii drepte din ce în ce mai puțin lungi. În timpul unei observații efectuate în 1909 de către Flammarion cu un telescop de 84 cm, au fost observate modele neregulate, dar nu s-au observat canali.
+                    </div>
+                    <h3 class="contents_h3">Explorare</h3>
+                    <div class="planet_item_text">
+                        În 1965 sonda Mariner 4 a ajuns la planetă pentru prima dată. Mariner 9 și Viking au permis realizarea unor hărți mai bune ale planetei Marte folosind datele din aceste misiuni. Un alt salt important a fost misiunea Mars Global Surveyor, lansată în 1996, care a funcționat până la sfârșitul anului 2006 și care a permis hărți complete, extrem de detaliate ale topografiei marțiene, câmpului magnetic și mineralelor de pe suprafața planetei. Aceste hărți sunt disponibile online; de exemplu, pe Google Mars. Mars Reconnaissance Orbiter și Mars Express au continuat să exploreze cu noi instrumente și să sprijine misiunile de debarcare.NASA oferă două instrumente online: „Mars Trek”, care oferă vizualizări ale planetei folosind date din 50 de ani de explorare și „Experience Curiosity”, care simulează călătoriile pe Marte în 3-D cu Curiosity.
+                    </div>
                 </div>
             </div>
         </div>
-        <script src="./frontend/assets/lib/three.min.js"></script>
-        <script src="./frontend/assets/lib/js/controls/OrbitControls.js"></script>
-        <script src="./frontend/dist/scripts/config.js"></script>
-        <script src="./frontend/dist/scripts/planet.js"></script>
-        <script src="./frontend/dist/scripts/camera.js"></script>
-        <script src="./frontend/dist/scripts/space.js"></script>
-        <script src="./frontend/dist/scripts/controls.js"></script>
-        <script src="./frontend/dist/scripts/loading.js"></script>
-        <script src="./frontend/dist/scripts/main.js"></script>
+        <script src="../frontend/assets/lib/three.min.js"></script>
+        <script src="../frontend/assets/lib/js/controls/OrbitControls.js"></script>
+        <script src="../frontend/dist/scripts/config.js"></script>
+        <script src="../frontend/dist/scripts/cookies.js"></script>
+        <script src="../frontend/dist/scripts/planet.js"></script>
+        <script src="../frontend/dist/scripts/camera.js"></script>
+        <script src="../frontend/dist/scripts/space.js"></script>
+        <script src="../frontend/dist/scripts/controls.js"></script>
+        <script src="../frontend/dist/scripts/loading.js"></script>
+        <script src="../frontend/dist/scripts/main.js"></script>
     </body>
 </html>

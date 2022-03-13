@@ -128,9 +128,14 @@ class Planet {
         planet = new THREE.Mesh(planet_geom,planet_mat);
         planet.position.set(0,1,0);
         this.selectedPlanet = planet;
-        if(index !== 0 && index !==1 && index !==2) {
+        if(index !== 0 && index !==1 && index !==2 && index !==4 && index !==10) {
+            let texture2;
+            if(index === 3) {
+                texture2 = loader.load('../frontend/assets/images/low-res/moon.jpg');
+            } else {
+                texture2 = loader.load('../frontend/assets/images/low-res/ceres.jpg');
+            }
             
-            let texture2=loader.load('../frontend/assets/images/low-res/ceres.jpg');
             moon_mat=new THREE.MeshPhongMaterial({map:texture2});
             moon_geom=new THREE.SphereGeometry(1,100,100);
             moon = new THREE.Mesh(moon_geom,moon_mat);
