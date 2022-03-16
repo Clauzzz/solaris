@@ -15,6 +15,25 @@ body {
     background-color: black;
     overflow: hidden;
 }
+*::-webkit-scrollbar 
+{
+    width: 0.2rem !important;
+    border-width: 0 !important;
+}
+*::-webkit-scrollbar-track
+{
+    background-color: rgba(0,0,0,0.5) !important;
+    border-radius: 0.5rem !important;
+}
+*::-webkit-scrollbar-thumb 
+{
+    background-color: rgba(255,255,255,0.2) !important;
+    border-radius: 0.5rem !important;
+}
+*::-webkit-scrollbar-thumb:hover
+{
+    background-color: rgba(255,255,255,0.3) !important; 
+}
 #select_planet {
     display: flex;
     position:absolute;
@@ -24,6 +43,14 @@ body {
     bottom: 35%;
     z-index: 10;
     cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 #loading_screen {
     display: flex;
@@ -197,9 +224,7 @@ body {
         width: 25px;
     }
 }
-.contents_h2 {
-    
-}
+
 .contents_h3 {
     margin-left: 16px;
 }
@@ -251,20 +276,21 @@ body {
     .contents_h3 {
         font-size: 16px;
     }
-    .planet_text_container {
-        padding-left: 20%;
+    .planet_text_scroll_container {
+        padding-right: 30px;
     }
     .planet_item_text {
         font-size: 13px;
     }
     .planet_item_title {
-        left: 50px;
+        left: 30px;
         top: 80px;
         height: 45px;
         font-size: 20px;
         .planet_item_subtitle {
             font-size: 14px;
             padding: 0;
+            padding-right: 10px;
             padding-left: 10px;
         }
     }
@@ -288,20 +314,23 @@ body {
     .contents_h3 {
         font-size: 16px;
     }
-    .planet_text_container {
-        padding-left: 20%;
+    .planet_text_scroll_container {
+        height: calc(100% - 200px);
+        padding-right: 30px;
+        top: 200px;
     }
     .planet_item_text {
         font-size: 14px;
     }
     .planet_item_title {
-        left: 50px;
+        left: 35px;
         top: 80px;
         height: 45px;
         font-size: 24px;
         .planet_item_subtitle {
             font-size: 14px;
             padding: 0;
+            padding-right: 10px;
             padding-left: 10px;
         }
     }
@@ -324,8 +353,10 @@ body {
     .contents_h3 {
         font-size: 18px;
     }
-    .planet_text_container {
-        padding-left: 20%;
+    .planet_text_scroll_container {
+        height: calc(100% - 200px);
+        padding-right: 30px;
+        top: 200px;
     }
     .planet_item_text {
         font-size: 14px;
@@ -338,6 +369,7 @@ body {
         .planet_item_subtitle {
             font-size: 15px;
             padding: 0;
+            padding-right: 10px;
             padding-left: 10px;
         }
     }

@@ -38,6 +38,7 @@ class Controls {
     static changeLabelToPlanet = (planets, index) => {
         let planetLabel = document.getElementById('planet_name');
         planetLabel.innerHTML = planets[index].label;
+        console.log(planets);
     }
     
     static goToPreviousPlanet = () => {
@@ -72,7 +73,7 @@ class Controls {
                 let textId = [anchors[i].id, 'text'].join('_');
                 let textElement = document.getElementById(textId);
                 if(textElement) {
-                    anchors[i].style.top = (textElement.offsetTop - (window.innerHeight * 0.4)) + 'px';
+                    anchors[i].style.top = (textElement.offsetTop - (window.innerHeight * 0.1)) + 'px';
                 }
             }
         },2000);

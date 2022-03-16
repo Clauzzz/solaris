@@ -22,20 +22,20 @@ class Main {
         this.controls.update();
         requestAnimationFrame(this.animatePlanetView);
     }
-    static initializeMainScreen = () =>{
+    static initializeMainScreen = async () =>{
         for(let i = 0; i < Planet.planets.length; i++)
         {
             if(i === 0) {
                 this.scene.add(Camera.createLight());
             }
-            const planet = Planet.initializePlanet(Planet.planets[i], i, Camera.radius);
+            const planet = await Planet.initializePlanet(Planet.planets[i], i, Camera.radius);
             this.scene.add(planet);
             if(i === 6) {
                 this.scene.add(Planet.createSaturnRings( Math.cos(Math.PI*2*i/10) * Camera.radius, 0, Math.sin(Math.PI*2*i/10) * Camera.radius, Math.PI/1.7, Math.PI/2, 0 ));
             }
         }
         Camera.camera.position.set(0,0,0);
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.renderer.setSize(window.innerWidth,window.innerHeight);
         this.container.appendChild(this.renderer.domElement);
         this.animateMain();
         Controls.initPlanetControls(Config.siteBase, Planet.planets, Camera.currentPlanet);
@@ -120,12 +120,12 @@ class Main {
         this.controls = new THREE.OrbitControls( Camera.camera, this.renderer.domElement);
         const planetIndex = Number(this.container.dataset.planet);
         Planet.selectedPlanet = Planet.planets[planetIndex];
-        Camera.camera.position.set(0,8,25);
+        Camera.camera.position.set(0,8,30);
         this.scene = Planet.initializePlanetPage(Planet.planets[planetIndex], this.scene, planetIndex);
         if(planetIndex === 6) {
             this.scene.add(Planet.createSaturnRings(0, 1, 0,  Math.PI/2, Math.PI/2, 0));
         }
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.renderer.setSize(1.2* window.innerWidth, 1.2* window.innerHeight);
         this.container.appendChild(this.renderer.domElement);
         this.animatePlanetView();
         this.addModeControls();
@@ -133,13 +133,12 @@ class Main {
     }
     static init = () => {
         this.scene = Space.loadSkybox();
-        
+        Controls.initialize();
         if(this.container && this.container.dataset && this.container.dataset.planet === 'main') {
             this.initializeMainScreen();
         } else if(this.container && this.container.dataset && this.container.dataset.planet) {
             this.initializePlanetScreen();
         }
-        Controls.initialize();
     }
 }
 
